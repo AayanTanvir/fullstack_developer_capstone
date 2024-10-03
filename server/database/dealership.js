@@ -1,3 +1,4 @@
+/*jshint esversion: 8 */
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
@@ -32,7 +33,7 @@ const dealerships = new Schema({
     required: true
   },
   short_name: {
-    type: String,
+    type: String
   },
   full_name: {
     type: String,
