@@ -1,4 +1,5 @@
 /*jshint esversion: 8 */
+
 const express = require('express');
 const mongoose = require('mongoose');
 const fs = require('fs');
@@ -21,10 +22,10 @@ const Dealerships = require('./dealership');
 
 try {
   Reviews.deleteMany({}).then(()=>{
-    Reviews.insertMany(reviews_data['reviews']);
+    Reviews.insertMany(reviews_data.reviews);
   });
   Dealerships.deleteMany({}).then(()=>{
-    Dealerships.insertMany(dealerships_data['dealerships']);
+    Dealerships.insertMany(dealerships_data.dealerships);
   });
   
 } catch (error) {
@@ -60,11 +61,11 @@ app.get('/fetchReviews/dealer/:id', async (req, res) => {
 // Express route to fetch all dealerships
 app.get('/fetchDealers', async (req, res) => {
 //Write your code here
-  try{
+  try {
     const documents = await Dealerships.find();
     res.json(documents);
-  } catch(error) {
-    res.status(500),json({error: 'Error fetching documents'});
+  } catch (error) {
+    res.status(500).json({error: 'Error fetching documents'});
   }
 });
 
